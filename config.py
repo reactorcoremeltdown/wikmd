@@ -21,6 +21,7 @@ HOMEPAGE_DEFAULT = "homepage.md"
 HOMEPAGE_TITLE_DEFAULT = "homepage"
 IMAGES_ROUTE_DEFAULT = "img"
 IMAGES_PROTECTED_ROUTE_DEFAULT = "img"
+UPLOAD_PREFIX_DEFAULT = ""
 IMAGES_FILE_UID = os.getuid()
 IMAGES_FILE_GID = os.getgid()
 IMAGES_FILE_MODE = '600'
@@ -95,6 +96,7 @@ class WikmdConfig:
         self.images_route = os.getenv("IMAGES_ROUTE") or yaml_config["images_route"] or IMAGES_ROUTE_DEFAULT
         self.images_protected_route = os.getenv("IMAGES_PROTECTED_ROUTE") or yaml_config["images_protected_route"] or IMAGES_PROTECTED_ROUTE_DEFAULT
         self.unprotected_routes = os.getenv("UNPROTECTED_ROUTES")or yaml_config["unprotected_routes"] or UNPROTECTED_ROUTES
+        self.upload_prefix = os.getenv("UPLOAD_PREFIX") or yaml_config["upload_prefix"] or UPLOAD_PREFIX_DEFAULT
         self.images_file_uid = os.getenv("IMAGES_FILE_UID") or yaml_config["images_file_uid"] or IMAGES_FILE_UID
         self.images_file_gid = os.getenv("IMAGES_FILE_GID") or yaml_config["images_file_gid"] or IMAGES_FILE_GID
         self.images_file_mode = os.getenv("IMAGES_FILE_MODE") or yaml_config["images_file_mode"] or IMAGES_FILE_MODE

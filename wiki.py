@@ -277,10 +277,13 @@ def add_new():
         page_name = request.args.get("page")
         if page_name == None:
             page_name = ""
+        upload_prefix = ""
         upload_path = cfg.images_protected_route
         if any(map(page_name.__contains__, cfg.unprotected_routes)):
             upload_path = cfg.images_route
+            upload_prefix = cfg.images_upload_prefix
         return render_template('new.html', upload_path=upload_path,
+                               upload_prefix=upload_prefix,
                                image_allowed_mime=cfg.image_allowed_mime, title=page_name, system=SYSTEM_SETTINGS)
 
 @app.route('/edit/homepage', methods=['POST', 'GET'])
@@ -301,6 +304,7 @@ def edit_homepage():
 
             content = f.read()
         return render_template("new.html", content=content, title=cfg.homepage_title, upload_path=cfg.images_protected_route,
+                               upload_prefix="",
                                image_allowed_mime=cfg.image_allowed_mime, system=SYSTEM_SETTINGS)
 
 
@@ -334,11 +338,14 @@ def edit(page):
         return redirect(url_for("file_page", file_page=page_name))
     else:
         upload_path = cfg.images_protected_route
+        upload_prefix = ""
         if any(map(page.__contains__, cfg.unprotected_routes)):
             upload_path = cfg.images_route
+            upload_prefix = cfg.images_upload_prefix
         with open(filename, 'r', encoding="utf-8", errors='ignore') as f:
             content = f.read()
         return render_template("new.html", content=content, title=page, upload_path=upload_path,
+                               upload_prefix=upload_prefix,
                                image_allowed_mime=cfg.image_allowed_mime, system=SYSTEM_SETTINGS)
 
 
