@@ -61,7 +61,7 @@
             process: {
                 url: './{{upload_path}}',
                 onload: (filename) => {
-                    const md = `[![]({{upload_prefix}}/{{upload_path}}/${filename})](![]({{upload_prefix}}/{{upload_path}}/${filename}))`;
+                    const md = `[![]({{upload_prefix}}/{{upload_path}}/${filename})]({{upload_prefix}}/{{upload_path}}/${filename})`;
                     let message = document.createElement("li");
                     message.innerHTML = `Use <b><code>${md}</code></b> inside your markdown file <a href="#" onclick=navigator.clipboard.writeText("${md}")>Copy</a>`;
                     messagesElement.appendChild(message);
