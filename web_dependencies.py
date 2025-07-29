@@ -85,6 +85,10 @@ WEB_DEPENDENCIES = {
         local="/static/css/notyf.min.css",
         external="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
     ),
+    "anchor.min.js": WebDependency(
+        local="/static/js/anchor.min.js",
+        external="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"
+    ),
     "mermaid.min.js": WebDependency(
         local="/static/js/mermaid.min.js",
         external="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
